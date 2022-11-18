@@ -1,13 +1,13 @@
-const { User }  = require("../models");
+const { users }  = require("../models");
 
 module.exports = {
 
   create(createArgs) {
-    return User.create(createArgs);
+    return users.create(createArgs);
   },
 
   update(id, updateArgs) {
-    return User.update(updateArgs, {
+    return users.update(updateArgs, {
       where: {
         id,
       },
@@ -15,22 +15,22 @@ module.exports = {
   },
 
   delete(id) {
-    return User.destroy(id);
+    return users.destroy(id);
   },
 
   findByPk(id) {
-    return User.findByPk(id);
+    return users.findByPk(id);
   },
 
   findOne(id) {
-    return User.findOne(id);
+    return users.findOne(id);
   },
 
   findAll() {
-    return User.findAll();
+    return users.findAll();
   },
 
-  getTotalUser() {
-    return User.count();
+  getTotalUsers() {
+    return users.count();
   },
 };
