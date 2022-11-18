@@ -3,13 +3,22 @@
  * @author Fikri Rahmat Nurhidayat
  */
 
+const sequelize = require("sequelize");
+
 /** Destruct environment variable to get database configuration */
 const {
   DB_USERNAME = "postgres",
   DB_PASSWORD = "sastra2002",
   DB_HOST = "127.0.0.1",
   DB_NAME = "cars",
+  DB_URI = "postgresql://postgres:xWmRRVvwqS8cEaWMKtn1@containers-us-west-129.railway.app:6242/railway"
 } = process.env;
+
+const db = sequelize(DB_URI, {
+  define: {
+    timestamps: false
+  }
+})
 
 module.exports = {
   development: {
@@ -33,4 +42,5 @@ module.exports = {
     host: DB_HOST,
     dialect: "postgres",
   },
+  db
 };
