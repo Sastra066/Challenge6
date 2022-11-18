@@ -3,7 +3,7 @@
  * @author Fikri Rahmat Nurhidayat
  */
 
-const sequelize = require("sequelize");
+const Sequelize = require("sequelize");
 
 /** Destruct environment variable to get database configuration */
 const {
@@ -14,7 +14,7 @@ const {
   DB_URI = "postgresql://postgres:xWmRRVvwqS8cEaWMKtn1@containers-us-west-129.railway.app:6242/railway"
 } = process.env;
 
-const db = sequelize(DB_URI, {
+const db = new Sequelize(DB_URI, {
   define: {
     timestamps: false
   }
