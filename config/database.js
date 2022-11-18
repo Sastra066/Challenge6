@@ -8,13 +8,14 @@ const Sequelize = require("sequelize");
 /** Destruct environment variable to get database configuration */
 const {
   DB_USERNAME = "postgres",
-  DB_PASSWORD = "sastra2002",
-  DB_HOST = "127.0.0.1",
-  DB_NAME = "cars",
-  DB_URI = "postgresql://postgres:xWmRRVvwqS8cEaWMKtn1@containers-us-west-129.railway.app:6242/railway"
+  DB_PASSWORD = "xWmRRVvwqS8cEaWMKtn1",
+  DB_HOST = "containers-us-west-129.railway.app",
+  DB_NAME = "railway",
+  DB_PORT = "6242",
+  DB_URL = "postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}"
 } = process.env;
 
-const db = new Sequelize(DB_URI, {
+const db = new Sequelize(DB_URL, {
   define: {
     timestamps: false
   }
@@ -26,6 +27,7 @@ module.exports = {
     password: DB_PASSWORD,
     database: `${DB_NAME}_dev`,
     host: DB_HOST,
+    port: DB_PORT,
     dialect: "postgres",
   },
   test: {
@@ -33,6 +35,7 @@ module.exports = {
     password: DB_PASSWORD,
     database: `${DB_NAME}_test`,
     host: DB_HOST,
+    port: DB_PORT,
     dialect: "postgres",
   },
   production: {
@@ -40,6 +43,7 @@ module.exports = {
     password: DB_PASSWORD,
     database: `${DB_NAME}_production`,
     host: DB_HOST,
+    port: DB_PORT,
     dialect: "postgres",
   },
   db
