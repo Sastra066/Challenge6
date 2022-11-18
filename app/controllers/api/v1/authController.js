@@ -67,10 +67,10 @@ module.exports = {
       }
       const email = req.body.email;
       const role = "member";
-      const encryptedPassword = await encryptPassword(req.body.password);
+      const encryptedpassword = await encryptPassword(req.body.password);
       const user = await UserServices.create({
         email,
-        encryptedPassword,
+        encryptedpassword,
         role,
       });
       res.status(201).json({
@@ -101,10 +101,10 @@ module.exports = {
       }
       const email = req.body.email;
       const role = "admin";
-      const encryptedPassword = await encryptPassword(req.body.password);
+      const encryptedpassword = await encryptPassword(req.body.password);
       const user = await UserServices.create({
         email,
-        encryptedPassword,
+        encryptedpassword,
         role,
       });
       res.status(201).json({
@@ -142,7 +142,7 @@ module.exports = {
 
       //pengecekan password yang telah di compare dari method checkPassword()
       const isPasswordCorrect = await checkPassword(
-        user.encryptedPassword,
+        user.encryptedpassword,
         password
       );
       //PENGECEKAN JIKA PASSWORD SALAH

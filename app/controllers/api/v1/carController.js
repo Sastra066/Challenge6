@@ -45,7 +45,7 @@ module.exports = {
     carService
       .create({
         name: req.body.name,
-        rentPerDay: req.body.rentPerDay,
+        rentperday: req.body.rentperday,
         type: req.body.type,
         image: req.body.image
       })
@@ -69,7 +69,7 @@ module.exports = {
     carService
       .update(req.params.id, {
         name: req.body.name,
-        rentPerDay: req.body.rentPerDay,
+        rentperday: req.body.rentperday,
         type: req.body.type,
         image: req.body.image
       })

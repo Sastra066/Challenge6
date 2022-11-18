@@ -14,8 +14,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   users.init({
+    // don't add the timestamp attributes (updatedAt, createdAt)
+    timestamps: false,
+
+    // If don't want createdAt
+    createdAt: false,
+
+    // If don't want updatedAt
+    updatedAt: false,
     email: DataTypes.STRING,
-    encryptedPassword: DataTypes.STRING,
+    encryptedpassword: DataTypes.STRING,
     role: DataTypes.STRING
   }, {
     sequelize,
