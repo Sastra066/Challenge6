@@ -12,7 +12,7 @@ const {
   DB_HOST = "containers-us-west-129.railway.app",
   DB_NAME = "railway",
   DB_PORT = "6242",
-  DB_URL = "postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}"
+  DB_URL = "postgresql://postgres:xWmRRVvwqS8cEaWMKtn1@containers-us-west-129.railway.app:6242/railway"
 } = process.env;
 
 const db = new Sequelize(DB_URL, {
