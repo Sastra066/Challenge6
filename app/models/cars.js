@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class cars extends Model {
     /**
@@ -13,14 +11,26 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  cars.init({
-    name: DataTypes.STRING,
-    rentperday: DataTypes.INTEGER,
-    type: DataTypes.STRING,
-    image: DataTypes.STRING,
-  }, {
-    sequelize,
-    modelName: 'cars',
-  });
+  cars.init(
+    {
+      // don't add the timestamp attributes (updatedAt, createdAt)
+      timestamps: false,
+
+      // If don't want createdAt
+      createdAt: false,
+
+      // If don't want updatedAt
+      updatedAt: false,
+
+      name: DataTypes.STRING,
+      rentperday: DataTypes.INTEGER,
+      type: DataTypes.STRING,
+      image: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "cars",
+    }
+  );
   return cars;
 };

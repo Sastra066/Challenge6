@@ -47,8 +47,7 @@ module.exports = {
         name: req.body.name,
         rentPerDay: req.body.rentPerDay,
         type: req.body.type,
-        image: req.body.image,
-        createBy: userEmail
+        image: req.body.image
       })
       .then((post) => {
         res.status(201).json({
@@ -72,8 +71,7 @@ module.exports = {
         name: req.body.name,
         rentPerDay: req.body.rentPerDay,
         type: req.body.type,
-        image: req.body.image,
-        updateBy: userEmail
+        image: req.body.image
       })
       .then(() => {
         res.status(200).json({

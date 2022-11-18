@@ -79,9 +79,7 @@ module.exports = {
         data: {
           id: user.id,
           email: user.email,
-          role: user.role,
-          createdAt: user.createdAt,
-          updatedAt: user.updatedAt,
+          role: user.role
         },
       });
     } catch (error) {
@@ -116,8 +114,6 @@ module.exports = {
           id: user.id,
           email: user.email,
           role: user.role,
-          createdAt: user.createdAt,
-          updatedAt: user.updatedAt,
         },
       });
     } catch (error) {
@@ -158,9 +154,7 @@ module.exports = {
       //TOKEN DI BUAT DARI METHOD createToken(), LALU DI MASUKUAN KE DALAM KE DALAM TOKEN
       const token = createToken({
         id: user.id,
-        email: user.email,
-        createdAt: user.createdAt,
-        updatedAt: user.updatedAt,
+        email: user.email
       });
 
       //RESPON YANG DI TAMPILKAN KE CLIENT
@@ -170,9 +164,7 @@ module.exports = {
         data: {
           id: user.id,
           email: user.email,
-          token,
-          createdAt: user.createdAt,
-          updatedAt: user.updatedAt,
+          token
         },
       });
     } catch (error) {
