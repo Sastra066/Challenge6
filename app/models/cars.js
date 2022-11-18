@@ -13,6 +13,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   cars.init(
     {
+      name: DataTypes.STRING,
+      rentperday: DataTypes.INTEGER,
+      type: DataTypes.STRING,
+      image: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "cars",
       // don't add the timestamp attributes (updatedAt, createdAt)
       timestamps: false,
 
@@ -22,14 +30,6 @@ module.exports = (sequelize, DataTypes) => {
       // If don't want updatedAt
       updatedAt: false,
 
-      name: DataTypes.STRING,
-      rentperday: DataTypes.INTEGER,
-      type: DataTypes.STRING,
-      image: DataTypes.STRING,
-    },
-    {
-      sequelize,
-      modelName: "cars",
     }
   );
   return cars;
